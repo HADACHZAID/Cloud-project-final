@@ -1,5 +1,5 @@
 package com.example
-import com.example.Day3part1
+import com.example._
 
 
 
@@ -11,16 +11,16 @@ object Configs {
   val app4 = root.getConfig("App4")
 }
 
-object Main extends App {
+object Main5 extends App {
   import Configs._
   val syst1 = ActorSystem("App1", app1)
-  val keyValueStore = syst1.actorOf(Props[KeyValueStore], "keyValueStore")
+  val keyValueStoreActorFile3 = syst1.actorOf(Props[KeyValueStoreActorFile3], "keyValueStoreActorFile3")
  
   val syst2 = ActorSystem("App2", app2)
-  val cache = syst2.actorOf(Props(new Cache(keyValueStore)), "cache")
+  val keyValueStoreActorCache2 = syst2.actorOf(Props(new KeyValueStoreActorCache2(keyValueStoreActorFile3)), "keyValueStoreActorCache2")  
  
   val syst3 = ActorSystem("App3", app3)
-  val server = syst3.actorOf(Props(new Server(cache)), "server")
+  al consoleReaderActorCache2 = syst3.actorOf(Props(new ConsoleReaderActorCache2(keyValueStoreActorCache2)), "consoleReaderActorCache2")
  
   val syst4 = ActorSystem("App4", app4)
   val client = syst4.actorOf(Props(new ClientActor(server, cache)), "client")

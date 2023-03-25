@@ -2,7 +2,7 @@ package com.example
 
 import scala.util.Random
 import akka.actor.ActorRef
-import com.example.Day3part1
+import com.example.{KeyValueStoreActorCache2}
 class RandomClient(store: ActorRef) {
   import Storage3._
 
@@ -72,7 +72,7 @@ object Part22 extends App {
   // Run the system without the cache
   val t1 = System.currentTimeMillis
   println("Running the system without the cache")
-  val randomClientWithoutCache = new RandomClient(keyValueStore)
+  val randomClientWithoutCache = new RandomClient(keyValueStoreActorCache2)
   println(s"system without the cache took ${System.currentTimeMillis - t1} millis")
   Thread.sleep(10000)
 

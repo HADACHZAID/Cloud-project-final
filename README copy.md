@@ -13,6 +13,7 @@ Sources in the sample:
 
 After starting the sample with `sbt run` the following requests can be made:
 
+
 List all users:
 
     curl http://localhost:8080/users
@@ -27,4 +28,10 @@ Get the details of one user:
 
 Delete a user:
 
-    curl -XDELETE http://localhost:8080/users/Liselott
+    curl -XDELETE http://localhost:8080/users/
+
+    git add . 
+    git commit -m "N'importe quoi "
+    git push origin main 
+    HADACHZAID 
+    token : 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
